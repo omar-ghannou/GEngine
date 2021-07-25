@@ -5,7 +5,7 @@
 namespace GEngine {
 
 
-	class G_API Application
+	class GE_API Application
 	{
 	public:
 		Application();

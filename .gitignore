@@ -2,6 +2,7 @@
 .vs/
 bin/
 bin-intermediate/
+GEngine/vendors/*
 
 #Files
 *.user

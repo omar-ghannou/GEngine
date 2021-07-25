@@ -1,10 +1,10 @@
 #pragma once
 
-#ifdef G_PLATFORM_WINDOWS
-	#ifdef G_BUILD_DLL
-		#define G_API __declspec(dllexport)
+#ifdef GE_PLATFORM_WINDOWS
+	#ifdef GE_BUILD_DLL
+		#define GE_API __declspec(dllexport)
 	#else
-		#define G_API __declspec(dllimport)
+		#define GE_API __declspec(dllimport)
 	#endif // G_BUILD_DLL
 #else
 	#error This version of GEngine only supports Windows
