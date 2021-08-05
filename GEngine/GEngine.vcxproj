@@ -147,6 +147,9 @@
     <ClInclude Include="src\GEngine\Application.h" />
     <ClInclude Include="src\GEngine\Core.h" />
     <ClInclude Include="src\GEngine\EntryPoint.h" />
+    <ClInclude Include="src\GEngine\Events\Event.h" />
+    <ClInclude Include="src\GEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\GEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\GEngine\Log.h" />
   </ItemGroup>
   <ItemGroup>

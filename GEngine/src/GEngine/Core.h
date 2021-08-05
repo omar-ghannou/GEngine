@@ -9,3 +9,5 @@
 #else
 	#error This version of GEngine only supports Windows
 #endif // G_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)
