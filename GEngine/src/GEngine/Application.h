@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
 
 namespace GEngine {
 
@@ -13,6 +14,7 @@ namespace GEngine {
 		void Run();
 	};
 
+	//Need to be defined in the CLIENT Side
 	Application* CreateApplication();
 
 }

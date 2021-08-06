@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Core.h"
+#include "GEngine/Core.h"
 #include <string>
 #include <functional>
 
@@ -11,7 +11,7 @@ namespace GEngine {
 	
 	enum class EventType {
 		None = 0,
-		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
+		WindowClosed, WindowResized, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick,AppUpdate,AppRender,
 		KeyPressed, KeyReleased,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
@@ -69,5 +69,9 @@ namespace GEngine {
 		Event& m_Event;
 
 	};
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& e) {
+		return os << e.ToString();
+	}
 
 }
