@@ -1,5 +1,5 @@
+#include "GEpch.h"
 #include "Log.h"
-
 
 
 namespace GEngine {

@@ -16,16 +16,18 @@ project "GEngine"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediate/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "GEpch.h"
+	pchsource "GEngine/src/GEpch.cpp"
 	
 	files{
 
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp"
-
 	}
 
 	includedirs {
-		"%{prj.name}/src"
+		"%{prj.name}/src",
 		"%{prj.name}/vendors/spdlog/include"
 	}
 
