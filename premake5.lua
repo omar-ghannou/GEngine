@@ -9,6 +9,11 @@ workspace "GEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "GEngine/vendors/GLFW/include"
+
+include "GEngine/vendors/GLFW"
+
 project "GEngine"
 	location "GEngine"
 	kind "SharedLib"
@@ -28,7 +33,13 @@ project "GEngine"
 
 	includedirs {
 		"%{prj.name}/src",
-		"%{prj.name}/vendors/spdlog/include"
+		"%{prj.name}/vendors/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
