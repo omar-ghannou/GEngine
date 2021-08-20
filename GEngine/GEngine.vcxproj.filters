@@ -37,6 +37,7 @@
     <ClInclude Include="src\GEngine\Log.h">
       <Filter>GEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\GEngine\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp">

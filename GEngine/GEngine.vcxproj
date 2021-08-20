@@ -159,6 +159,7 @@
     <ClInclude Include="src\GEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\GEngine\GEpch.h" />
     <ClInclude Include="src\GEngine\Log.h" />
+    <ClInclude Include="src\GEngine\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp" />
