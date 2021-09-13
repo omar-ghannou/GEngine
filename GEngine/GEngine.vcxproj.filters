@@ -38,6 +38,7 @@
       <Filter>GEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\GEngine\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp">
@@ -49,5 +50,6 @@
     <ClCompile Include="src\GEngine\Log.cpp">
       <Filter>GEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

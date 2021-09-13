@@ -17,6 +17,8 @@ namespace GEngine {
 			: Title(title) , Width (width), Height(height) {}
 	};
 
+
+	//currently represents Desktop systems, phones has surface not windows
 	class GE_API Window {
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
