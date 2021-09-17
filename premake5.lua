@@ -28,7 +28,14 @@ project "GEngine"
 	files{
 
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/src/GEngine/**.h",
+		"%{prj.name}/src/GEngine/**.cpp",
+		"%{prj.name}/src/GEngine/Events/**.h",
+		"%{prj.name}/src/GEngine/Events/**.cpp",
+		"%{prj.name}/src/Platform/Windows/**.h",
+		"%{prj.name}/src/Platform/Windows/**.cpp",
+
 	}
 
 	includedirs {

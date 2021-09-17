@@ -157,15 +157,17 @@
     <ClInclude Include="src\GEngine\Events\Event.h" />
     <ClInclude Include="src\GEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\GEngine\Events\MouseEvent.h" />
-    <ClInclude Include="src\GEngine\GEpch.h" />
     <ClInclude Include="src\GEngine\Log.h" />
     <ClInclude Include="src\GEngine\Window.h" />
+    <ClInclude Include="src\GEpch.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp" />
-    <ClCompile Include="src\GEngine\GEpch.cpp" />
     <ClCompile Include="src\GEngine\Log.cpp" />
+    <ClCompile Include="src\GEpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>

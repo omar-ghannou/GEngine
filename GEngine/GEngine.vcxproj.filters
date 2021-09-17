@@ -7,6 +7,12 @@
     <Filter Include="GEngine\Events">
       <UniqueIdentifier>{A64FEF47-921D-E34D-7BB1-5374671EBFB2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GEngine.h" />
@@ -31,25 +37,27 @@
     <ClInclude Include="src\GEngine\Events\MouseEvent.h">
       <Filter>GEngine\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\GEngine\GEpch.h">
-      <Filter>GEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\GEngine\Log.h">
       <Filter>GEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\GEngine\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\GEngine\Window.h">
+      <Filter>GEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GEpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp">
       <Filter>GEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\GEngine\GEpch.cpp">
-      <Filter>GEngine</Filter>
-    </ClCompile>
     <ClCompile Include="src\GEngine\Log.cpp">
       <Filter>GEngine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\GEpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
