@@ -24,6 +24,8 @@ namespace GEngine {
 
 	void WindowsWindow::OnUpdate()
 	{
+		glClearColor(1, 1, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT);
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	}
@@ -57,7 +59,8 @@ namespace GEngine {
 			GE_CORE_ASSERT(success, "Could not initialise GLFW");
 			s_GLFWInitialized = true;
 		}
-
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		m_Window = glfwCreateWindow((int)m_Data.width, (int)m_Data.height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
