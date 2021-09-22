@@ -34,6 +34,26 @@ namespace GEngine {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
+	class GE_API WindowFocusEvent : public Event {
+
+	public:
+		WindowFocusEvent() {}
+		
+		EVENT_CLASS_TYPE(WindowFocus)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		
+	};
+
+	class GE_API WindowFocusLostEvent : public Event {
+
+	public:
+		WindowFocusLostEvent() {}
+
+		EVENT_CLASS_TYPE(WindowLostFocus)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+
+	};
+
 	class GE_API AppTickEvent : public Event {
 
 	public:

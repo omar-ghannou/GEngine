@@ -14,6 +14,8 @@ namespace GEngine {
 		virtual ~Application();
 		void Run();
 	private:
+		void OnEvent(Event& e);
+	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};

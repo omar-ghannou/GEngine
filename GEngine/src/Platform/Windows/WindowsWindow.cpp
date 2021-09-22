@@ -2,6 +2,10 @@
 #include "GEpch.h"
 #include "WindowsWindow.h"
 
+#include "GEngine/Events/ApplicationEvent.h"
+#include "GEngine/Events/MouseEvent.h"
+#include "GEngine/Events/KeyEvent.h"
+
 
 
 namespace GEngine {
@@ -52,7 +56,7 @@ namespace GEngine {
 		m_Data.width = props.Width;
 		m_Data.height = props.Height;
 
-		GE_CORE_INFO("Creating a Window {0} ({1}, {2})...");
+		GE_CORE_INFO("Creating a Window {0} ({1}, {2})...",m_Data.Title, m_Data.width, m_Data.height);
 
 		if (!s_GLFWInitialized) {
 			int success = glfwInit();
@@ -65,6 +69,61 @@ namespace GEngine {
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
+
+		//Set GLFW Callbacks
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) 
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				data.width = width;
+				data.height = height;
+				WindowResizeEvent m_event(width,height);
+				data.EventCallback(m_event);
+		});
+
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				WindowClosedEvent m_event;
+				data.EventCallback(m_event);
+		});
+
+		glfwSetWindowFocusCallback(m_Window, [](GLFWwindow* window, int focus) 
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				if (focus == GLFW_TRUE) {
+					WindowFocusEvent m_event;
+					data.EventCallback(m_event);
+				}
+				else {
+					WindowFocusLostEvent m_event;
+					data.EventCallback(m_event);
+				}
+		});
+
+		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) 
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				switch (action) {
+					case GLFW_PRESS:
+					{
+						KeyPressedEvent m_event(key, 0);
+						data.EventCallback(m_event);
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						KeyReleasedEvent m_event(key);
+						data.EventCallback(m_event);
+						break;
+					}
+					case GLFW_REPEAT:
+					{
+						KeyPressedEvent m_event(key, 1);
+						data.EventCallback(m_event);
+						break;
+					}
+				}
+		});
 	}
 
 	void WindowsWindow::Shutdown()
