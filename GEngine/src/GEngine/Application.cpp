@@ -19,23 +19,25 @@ namespace GEngine {
 
 	}
 
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowClosedEvent>(BIND_APPLICATION_EVENT_FN(OnWindowClose));
+#ifdef _DEBUG
+		GE_CORE_TRACE("{0}", e);
+#endif // DEBUG
+	}
+
 	void Application::Run()
 	{
-		//for testing purposes
-		
-		//WindowResizeEvent e(1280, 720);
-		//if(e.IsInCategory(EventCategoryApplication))
-		//	GE_TRACE(e);
-		//if (e.IsInCategory(EventCategoryInput))
-		//	GE_TRACE(e);
-		//while (true);
-
 		while (m_Running) {
 			m_Window->OnUpdate();
 		}
 	}
-	void Application::OnEvent(Event& e)
-	{
-		GE_CORE_INFO("{0}", e);
+
+	bool Application::OnWindowClose(WindowClosedEvent& e) {
+		m_Running = false;
+		return true;
 	}
+
 }

@@ -12,6 +12,10 @@ namespace GEngine {
 
 	static bool s_GLFWInitialized = false;
 
+	static void GLFWErrorCallback(int error, const char* description) {
+		GE_CORE_ERROR("GLFW Error ({0}) : {1}", error, description);
+	}
+
 	Window* Window::Create(const WindowProps& props) {
 		return new WindowsWindow(props);
 	}
@@ -61,6 +65,7 @@ namespace GEngine {
 		if (!s_GLFWInitialized) {
 			int success = glfwInit();
 			GE_CORE_ASSERT(success, "Could not initialise GLFW");
+			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -124,6 +129,40 @@ namespace GEngine {
 					}
 				}
 		});
+
+		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) 
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				switch (action) {
+					case GLFW_PRESS:
+					{
+						MouseButtonPressedEvent m_event(button);
+						data.EventCallback(m_event);
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						MouseButtonReleasedEvent m_event(button);
+						data.EventCallback(m_event);
+						break;
+					}
+				}
+		});
+
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				MouseScrolledEvent m_event((float)xOffset, (float)yOffset);
+				data.EventCallback(m_event);
+		});
+
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
+		{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				MouseMovedEvent m_event((float)xPos, (float)yPos);
+				data.EventCallback(m_event);
+		});
+
 	}
 
 	void WindowsWindow::Shutdown()

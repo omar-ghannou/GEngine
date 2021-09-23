@@ -57,7 +57,7 @@ namespace GEngine {
 
 		template<typename T>
 		bool Dispatch(EventFn<T> m_function) {
-			if (m_Event.GetEventType == T::GetStaticType()) {
+			if (m_Event.GetEventType() == T::GetStaticType()) {
 				m_Event.m_Handled = m_function(*(T*)&m_Event);
 				return true;
 			}
