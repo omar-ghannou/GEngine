@@ -47,6 +47,9 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>GEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp">
@@ -58,6 +61,9 @@
     <ClCompile Include="src\GEpch.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>GEngine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

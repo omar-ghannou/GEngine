@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="src\GEngine.h" />
     <ClInclude Include="src\GEngine\Application.h" />
     <ClInclude Include="src\GEngine\Core.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="src\GEngine\Application.cpp" />
     <ClCompile Include="src\GEngine\Log.cpp" />
     <ClCompile Include="src\GEpch.cpp">
