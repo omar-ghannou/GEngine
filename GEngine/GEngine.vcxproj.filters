@@ -50,6 +50,7 @@
     <ClInclude Include="Layer.h">
       <Filter>GEngine</Filter>
     </ClInclude>
+    <ClInclude Include="LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GEngine\Application.cpp">
@@ -65,5 +66,6 @@
     <ClCompile Include="Layer.cpp">
       <Filter>GEngine</Filter>
     </ClCompile>
+    <ClCompile Include="LayerStack.cpp" />
   </ItemGroup>
 </Project>
